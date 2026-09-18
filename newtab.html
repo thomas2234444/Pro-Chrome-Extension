@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ar" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <title>New Tab</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- الشريط العلوي -->
+    <nav class="top-nav">
+        <a href="https://mail.google.com">Gmail</a>
+        <a href="https://images.google.com">Images</a>
+        <div class="profile-pic">T</div>
+    </nav>
+
+    <!-- المحتوى الرئيسي -->
+    <main class="center-content">
+        <h1 class="google-logo">Google</h1>
+
+        <!-- شريط البحث -->
+        <form class="search-bar" id="search-form">
+            <svg class="search-icon" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="#9aa0a6" d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"></path></svg>
+            <input type="text" id="search-input" placeholder="Ask Google or type a URL" autocomplete="off" autofocus>
+        </form>
+
+        <!-- أزرار التحكم -->
+        <div class="controls">
+            <!-- خلينا زر My Shortcuts هو الأول -->
+            <button id="btn-custom" class="active">My Shortcuts</button>
+            <button id="btn-top-sites">Most Visited</button>
+        </div>
+
+        <!-- حاوية الاختصارات -->
+        <div id="shortcuts-container" class="grid-container"></div>
+    </main>
+
+    <!-- شاشة إضافة اختصار جديد (Popup) -->
+    <div id="add-modal" class="modal-overlay" style="display: none;">
+        <div class="modal-content">
+            <h3>Add shortcut</h3>
+            <input type="text" id="shortcut-name" placeholder="Name (e.g., YouTube)">
+            <input type="url" id="shortcut-url" placeholder="URL (e.g., youtube.com)">
+            <div class="modal-actions">
+                <button id="cancel-btn" class="btn-cancel">Cancel</button>
+                <button id="save-btn" class="btn-save">Done</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

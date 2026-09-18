@@ -1,0 +1,15 @@
+{
+  "manifest_version": 3,
+  "name": "Pro Launcher New Tab",
+  "version": "2.2",
+  "description": "A simple new tab page that shows your most visited and  sites and their favicons.",
+  "chrome_url_overrides": {
+    "newtab": "newtab.html"
+  },
+  "permissions": [
+    "topSites",
+    "favicon",
+    "storage",
+    
+  ]
+}

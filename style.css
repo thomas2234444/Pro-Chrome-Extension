@@ -1,0 +1,116 @@
+:root {
+    --bg-color: #ffffff;
+    --text-color: #202124;
+    --search-bg: #ffffff;
+    --search-border: #dfe1e5;
+    --hover-bg: rgba(0, 0, 0, 0.1);
+    --icon-bg: #f1f3f4;
+    --modal-bg: #ffffff;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --bg-color: #3b2f2f;
+        --text-color: #ffffff;
+        --search-bg: #ffffff;
+        --search-border: transparent;
+        --hover-bg: rgba(255, 255, 255, 0.1);
+        --icon-bg: #202124;
+        --modal-bg: #292a2d;
+    }
+}
+
+body {
+    margin: 0; padding: 0;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background-color: var(--bg-color); color: var(--text-color);
+    min-height: 100vh; background-repeat: no-repeat; background-attachment: fixed;
+    display: flex; flex-direction: column;
+}
+
+.top-nav {
+    display: flex; justify-content: flex-end; align-items: center;
+    padding: 16px; gap: 16px; font-size: 13px;
+}
+.top-nav a { color: var(--text-color); text-decoration: none; }
+.top-nav a:hover { text-decoration: underline; }
+.profile-pic {
+    width: 32px; height: 32px; background: #8ab4f8; color: #000;
+    border-radius: 50%; display: flex; justify-content: center; align-items: center; font-weight: bold;
+}
+
+.center-content {
+    flex-grow: 1; display: flex; flex-direction: column; align-items: center; margin-top: 10vh;
+}
+
+.google-logo { font-size: 80px; margin: 0 0 30px 0; font-weight: 500; letter-spacing: -2px; }
+
+.search-bar {
+    display: flex; align-items: center;
+    background-color: var(--search-bg); border: 1px solid var(--search-border);
+    border-radius: 24px; width: 100%; max-width: 680px; height: 48px;
+    padding: 0 16px; box-shadow: 0 1px 6px rgba(32, 33, 36, 0.28); box-sizing: border-box;
+}
+.search-icon { width: 24px; height: 24px; margin-right: 12px; }
+.search-bar input { flex-grow: 1; border: none; outline: none; font-size: 16px; background: transparent; color: #202124; }
+
+.controls { margin-top: 30px; display: flex; gap: 10px; }
+.controls button {
+    background: transparent; border: 1px solid var(--text-color); color: var(--text-color);
+    padding: 6px 12px; border-radius: 16px; cursor: pointer; opacity: 0.6; transition: 0.2s;
+}
+.controls button:hover { opacity: 0.8; }
+.controls button.active { opacity: 1; font-weight: bold; background: var(--hover-bg); }
+
+.grid-container {
+    display: flex; flex-wrap: wrap; justify-content: center; gap: 12px;
+    max-width: 800px; margin-top: 20px; padding-bottom: 60px;
+}
+
+.shortcut-item {
+    display: flex; flex-direction: column; align-items: center;
+    text-decoration: none; color: var(--text-color);
+    width: 112px; padding: 16px 0; border-radius: 8px; cursor: pointer;
+    transition: 0.2s; position: relative; /* مهم لزر الحذف */
+}
+.shortcut-item:hover { background-color: var(--hover-bg); }
+
+.icon-wrapper {
+    width: 48px; height: 48px; background-color: var(--icon-bg);
+    border-radius: 50%; display: flex; justify-content: center; align-items: center; margin-bottom: 12px;
+}
+.icon-wrapper img { width: 24px; height: 24px; }
+.title { font-size: 13px; text-align: center; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; width: 88px; }
+
+/* زر الحذف X */
+.delete-btn {
+    position: absolute; top: 4px; right: 16px; width: 22px; height: 22px;
+    background: #5f6368; color: white; border-radius: 50%;
+    display: none; align-items: center; justify-content: center;
+    font-size: 14px; z-index: 10; font-weight: bold;
+}
+.delete-btn:hover { background: #d93025; }
+.shortcut-item:hover .delete-btn { display: flex; } /* يظهر عند مرور الماوس */
+
+/* شاشة إضافة موقع (Popup) */
+.modal-overlay {
+    position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
+    background: rgba(0,0,0,0.6); display: flex; justify-content: center; align-items: center; z-index: 100;
+}
+.modal-content {
+    background: var(--modal-bg); color: var(--text-color);
+    padding: 24px; border-radius: 8px; width: 320px; box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+.modal-content h3 { margin-top: 0; font-size: 16px; font-weight: normal; }
+.modal-content input {
+    width: 100%; box-sizing: border-box; padding: 10px; margin-top: 12px;
+    border: 1px solid var(--search-border); border-radius: 4px;
+    background: transparent; color: var(--text-color); outline: none;
+}
+.modal-content input:focus { border-bottom: 2px solid #8ab4f8; }
+.modal-actions { display: flex; justify-content: flex-end; gap: 8px; margin-top: 24px; }
+.modal-actions button { padding: 8px 16px; border: none; border-radius: 4px; cursor: pointer; font-weight: bold;}
+.btn-cancel { background: transparent; color: #8ab4f8; }
+.btn-cancel:hover { background: rgba(138, 180, 248, 0.1); }
+.btn-save { background: transparent; color: #8ab4f8; }
+.btn-save:hover { background: rgba(138, 180, 248, 0.1); }
